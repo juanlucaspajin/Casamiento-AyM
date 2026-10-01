@@ -72,24 +72,90 @@ export function GoldLeafFlourish({ className = "w-28 h-5 my-4" }: { className?: 
   );
 }
 
-// Exact 4 icons extracted directly from the original stationery cards
-export function KitItemIcon({ type, className = "w-16 h-16" }: { type: 'pill' | 'stomach' | 'mint' | 'bandage'; className?: string }) {
-  const iconSrc = {
-    pill: '/icon-pill-original.png',
-    stomach: '/icon-stomach-original.png',
-    mint: '/icon-leaf-original.png',
-    bandage: '/icon-bandage-original.png',
-  }[type];
-
+// Ultra high-definition vector icons with complete unbroken gold circles, matching the original cards
+export function KitItemIcon({ type, className = "w-14 h-14 sm:w-16 sm:h-16" }: { type: 'pill' | 'stomach' | 'mint' | 'bandage'; className?: string }) {
   return (
     <div className={`flex-shrink-0 relative ${className}`}>
-      <Image
-        src={iconSrc}
-        alt={type}
-        width={75}
-        height={75}
-        className="w-full h-full object-contain drop-shadow-xs"
-      />
+      {type === 'pill' && (
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xs">
+          <circle cx="32" cy="32" r="29" stroke="#bca06b" strokeWidth="1.6" />
+          <g transform="rotate(-45 32 32)">
+            <rect x="16" y="24" width="32" height="16" rx="8" stroke="#bca06b" strokeWidth="1.5" fill="none" />
+            <line x1="32" y1="24" x2="32" y2="40" stroke="#bca06b" strokeWidth="1.5" strokeLinecap="round" />
+          </g>
+        </svg>
+      )}
+
+      {type === 'stomach' && (
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xs">
+          <circle cx="32" cy="32" r="29" stroke="#bca06b" strokeWidth="1.6" />
+          <g transform="translate(1, -1)">
+            <path 
+              d="M 24 15 
+                 L 24 23 
+                 C 24 28, 27 34, 27 39 
+                 C 27 42, 23 44, 18 44 
+                 L 13 44 
+                 L 13 50 
+                 L 17 50 
+                 C 27 50, 31 46, 31 46
+                 C 37 45, 47 38, 47 29
+                 C 47 20, 37 17, 30 18
+                 L 30 15 
+                 Z" 
+              stroke="#bca06b" 
+              strokeWidth="1.5" 
+              strokeLinejoin="round" 
+              strokeLinecap="round"
+              fill="none" 
+            />
+            <circle cx="28" cy="42" r="1.3" fill="#bca06b" />
+          </g>
+        </svg>
+      )}
+
+      {type === 'mint' && (
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xs">
+          <circle cx="32" cy="32" r="29" stroke="#bca06b" strokeWidth="1.6" />
+          <g transform="translate(0, 0)">
+            <path d="M 16 48 L 22 42" stroke="#bca06b" strokeWidth="1.6" strokeLinecap="round" />
+            <path d="M 22 42 C 17 33 21 21 44 16 C 44 38 33 47 22 42 Z" stroke="#bca06b" strokeWidth="1.5" strokeLinejoin="round" fill="none" />
+            <path d="M 22 42 Q 32 31 44 16" stroke="#bca06b" strokeWidth="1.4" strokeLinecap="round" fill="none" />
+            <path d="M 26 37 Q 23 33 22 31" stroke="#bca06b" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 31 31 Q 27 27 26 24" stroke="#bca06b" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 36 25 Q 33 21 32 19" stroke="#bca06b" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 28 35 Q 33 37 36 38" stroke="#bca06b" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 33 29 Q 38 31 41 31" stroke="#bca06b" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M 38 23 Q 40 24 41 24" stroke="#bca06b" strokeWidth="1.2" strokeLinecap="round" />
+          </g>
+        </svg>
+      )}
+
+      {type === 'bandage' && (
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xs">
+          <circle cx="32" cy="32" r="29" stroke="#bca06b" strokeWidth="1.6" />
+          <g transform="rotate(-45 32 32)">
+            <rect x="15" y="23" width="34" height="18" rx="8" stroke="#bca06b" strokeWidth="1.5" fill="none" />
+            <line x1="26" y1="23" x2="26" y2="41" stroke="#bca06b" strokeWidth="1.4" />
+            <line x1="38" y1="23" x2="38" y2="41" stroke="#bca06b" strokeWidth="1.4" />
+            {/* Dots left tab */}
+            <circle cx="21" cy="28" r="0.9" fill="#bca06b" />
+            <circle cx="18" cy="32" r="0.9" fill="#bca06b" />
+            <circle cx="24" cy="32" r="0.9" fill="#bca06b" />
+            <circle cx="21" cy="36" r="0.9" fill="#bca06b" />
+            {/* Dots center pad */}
+            <circle cx="32" cy="28" r="0.9" fill="#bca06b" />
+            <circle cx="29" cy="32" r="0.9" fill="#bca06b" />
+            <circle cx="35" cy="32" r="0.9" fill="#bca06b" />
+            <circle cx="32" cy="36" r="0.9" fill="#bca06b" />
+            {/* Dots right tab */}
+            <circle cx="43" cy="28" r="0.9" fill="#bca06b" />
+            <circle cx="40" cy="32" r="0.9" fill="#bca06b" />
+            <circle cx="46" cy="32" r="0.9" fill="#bca06b" />
+            <circle cx="43" cy="36" r="0.9" fill="#bca06b" />
+          </g>
+        </svg>
+      )}
     </div>
   );
 }
