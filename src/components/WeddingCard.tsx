@@ -33,22 +33,9 @@ export function WeddingCard({ content }: WeddingCardProps) {
         {/* Content Container */}
         <div className="relative z-10 px-6 sm:px-12 md:px-16 pt-9 sm:pt-14 pb-14 sm:pb-20 flex flex-col items-center text-center">
 
-          {/* Monogram Section with Wreath */}
-          <div className="relative w-full mb-3">
-            <BotanicalWreath />
-            <div className="absolute inset-0 flex items-center justify-center -translate-y-5">
-              <div className="flex items-center space-x-1.5 font-serif select-none">
-                <span className="text-5xl sm:text-6xl md:text-7xl font-normal text-[#20382e] tracking-tight">
-                  A
-                </span>
-                <span className="text-4xl sm:text-5xl md:text-6xl italic text-[#c5a059] px-1 font-serif font-light">
-                  &
-                </span>
-                <span className="text-5xl sm:text-6xl md:text-7xl font-normal text-[#20382e] tracking-tight">
-                  M
-                </span>
-              </div>
-            </div>
+          {/* Monogram Section with Original Wreath & Logo */}
+          <div className="relative w-full mb-4">
+            <BotanicalWreath className="max-w-[340px] sm:max-w-[420px] md:max-w-[460px]" />
           </div>
 
           {/* Title in spaced small-caps */}

@@ -23,16 +23,9 @@ export function LanguageSelector({ onSelectLanguage }: LanguageSelectorProps) {
         <div className="absolute inset-3 sm:inset-4 rounded-2xl border border-[#c5a059]/30 pointer-events-none" />
         <div className="absolute inset-4 sm:inset-5 rounded-2xl border border-[#c5a059]/15 pointer-events-none" />
 
-        {/* Monogram Section */}
-        <div className="relative mb-2">
-          <BotanicalWreath />
-          <div className="absolute inset-0 flex items-center justify-center -translate-y-4">
-            <div className="flex items-center space-x-1.5 font-serif">
-              <span className="text-5xl sm:text-6xl font-normal text-[#20382e] tracking-tight font-serif">A</span>
-              <span className="text-4xl sm:text-5xl italic text-[#c5a059] font-serif px-1 font-light">&</span>
-              <span className="text-5xl sm:text-6xl font-normal text-[#20382e] tracking-tight font-serif">M</span>
-            </div>
-          </div>
+        {/* Monogram Section with Original Wreath & Logo */}
+        <div className="relative mb-4">
+          <BotanicalWreath className="max-w-[300px] sm:max-w-[360px]" />
         </div>
 
         {/* Welcome Headers */}

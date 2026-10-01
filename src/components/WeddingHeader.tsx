@@ -24,15 +24,18 @@ export function WeddingHeader({
         {/* Monogram Brand */}
         <button 
           onClick={onResetLanguage}
-          className="flex items-center space-x-2 group cursor-pointer text-left bg-transparent border-none p-0"
+          className="flex items-center space-x-2.5 group cursor-pointer text-left bg-transparent border-none p-0"
           title={isEs ? 'Volver a selección de idioma' : 'Back to language selection'}
         >
+          <div className="w-8 h-8 rounded-full overflow-hidden border border-[#c5a059]/40 bg-[#FAF7F2] p-0.5 shadow-xs group-hover:scale-105 transition-transform flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/wedding-logo-transparent.png" alt="A & M" className="w-full h-full object-contain" />
+          </div>
           <div className="font-serif tracking-widest text-[#20382e] group-hover:text-[#8c6d32] transition-colors flex items-center">
             <span className="text-xl sm:text-2xl font-bold font-serif">A</span>
             <span className="text-lg sm:text-xl italic text-[#c5a059] px-0.5">&</span>
             <span className="text-xl sm:text-2xl font-bold font-serif">M</span>
           </div>
-          <GoldHeart className="w-3.5 h-3.5 text-[#c5a059] opacity-75 group-hover:scale-125 transition-transform" />
         </button>
 
         {/* Language Switcher Pill */}
