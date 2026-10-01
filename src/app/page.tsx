@@ -1,45 +1,24 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Language, weddingContent } from '../data/weddingData';
 import { LanguageSelector } from '../components/LanguageSelector';
 import { WeddingHeader } from '../components/WeddingHeader';
 import { WeddingCard } from '../components/WeddingCard';
 
 export default function WeddingPage() {
+  // Always start with null so the user first sees the language selection screen
   const [language, setLanguage] = useState<Language | null>(null);
-
-  // Check saved language preference on client mount
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem('wedding_preferred_language') as Language;
-      if (saved && (saved === 'es' || saved === 'en')) {
-        setLanguage(saved);
-      }
-    } catch {
-      // fallback
-    }
-  }, []);
 
   const handleSelectLanguage = (lang: Language) => {
     setLanguage(lang);
-    try {
-      localStorage.setItem('wedding_preferred_language', lang);
-    } catch {
-      // fallback
-    }
   };
 
   const handleResetLanguage = () => {
     setLanguage(null);
-    try {
-      localStorage.removeItem('wedding_preferred_language');
-    } catch {
-      // fallback
-    }
   };
 
-  // If no language chosen, show the welcoming gateway screen
+  // If no language chosen yet, show the welcoming language gateway screen
   if (!language) {
     return <LanguageSelector onSelectLanguage={handleSelectLanguage} />;
   }
