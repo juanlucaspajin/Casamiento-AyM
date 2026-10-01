@@ -11,6 +11,30 @@ export interface RecoveryItem {
   tips?: string[];
 }
 
+export interface GuestbookContent {
+  tabLabel: string;
+  kitTabLabel: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  messageLabel: string;
+  messagePlaceholder: string;
+  submitBtn: string;
+  submittingBtn: string;
+  successTitle: string;
+  successMessage: string;
+  sendAnotherBtn: string;
+  recentMessagesTitle: string;
+  noMessagesYet: string;
+  backToKitBtn: string;
+  goToGuestbookBtn: string;
+  guestNotesNotice: string;
+  cardCtaText: string;
+  cardCtaBtn: string;
+}
+
 export interface WeddingContent {
   monogram: {
     initials: string;
@@ -25,6 +49,7 @@ export interface WeddingContent {
   closingMessage: string;
   signaturePrefix: string;
   signature: string;
+  guestbook: GuestbookContent;
   actions: {
     viewOriginal: string;
     viewInteractive: string;
@@ -129,6 +154,29 @@ export const weddingContent: Record<Language, WeddingContent> = {
     closingMessage: '¡Gracias por celebrar este día tan especial con nosotros!',
     signaturePrefix: 'CON CARIÑO,',
     signature: 'A & M',
+    guestbook: {
+      tabLabel: 'Libro de Firmas',
+      kitTabLabel: 'Kit de Resaca',
+      badge: 'Deseos & Recuerdos',
+      title: 'LIBRO DE FIRMAS & DESEOS',
+      subtitle: 'Dejá tus palabras, bendiciones, anécdotas o consejos para la nueva etapa de A & M.',
+      nameLabel: 'Tu Nombre o Familia',
+      namePlaceholder: 'Ej: Sofía & Tomás / Familia Martínez',
+      messageLabel: 'Tu Mensaje para los Novios',
+      messagePlaceholder: 'Escribe aquí tus mejores deseos, anécdotas o felicitaciones para A & M...',
+      submitBtn: 'Enviar Mensaje con Cariño 💌',
+      submittingBtn: 'Guardando mensaje...',
+      successTitle: '¡Muchas gracias por tus palabras!',
+      successMessage: 'Tu mensaje fue guardado con éxito. Los novios lo leerán con mucho amor.',
+      sendAnotherBtn: 'Dejar otro mensaje',
+      recentMessagesTitle: 'Mensajes de los Invitados',
+      noMessagesYet: 'Aún no hay mensajes. ¡Sé el primero en dejarle un mensaje lleno de cariño a la pareja!',
+      backToKitBtn: 'Volver al Kit de Resaca 🌿',
+      goToGuestbookBtn: 'Ir al Libro de Firmas ✍️',
+      guestNotesNotice: 'Los novios leerán cada uno de sus mensajes y los guardarán con mucho cariño.',
+      cardCtaText: '¿Quieres dejarle un mensaje especial o tus mejores deseos a los novios?',
+      cardCtaBtn: 'Escribir en el Libro de Firmas 💌',
+    },
     actions: {
       viewOriginal: 'Ver Tarjeta Original',
       viewInteractive: 'Modo Interactivo',
@@ -236,6 +284,29 @@ export const weddingContent: Record<Language, WeddingContent> = {
     closingMessage: 'Thank you for celebrating our special day with us.',
     signaturePrefix: 'WITH LOVE,',
     signature: 'A & M',
+    guestbook: {
+      tabLabel: 'Guestbook',
+      kitTabLabel: 'Recovery Kit',
+      badge: 'Wishes & Memories',
+      title: 'WEDDING GUESTBOOK',
+      subtitle: 'Leave your warm wishes, blessings, memories, or marriage advice for A & M.',
+      nameLabel: 'Your Name or Family',
+      namePlaceholder: 'e.g. Sophia & Thomas / The Smith Family',
+      messageLabel: 'Your Message for the Couple',
+      messagePlaceholder: 'Share your heartfelt congratulations, memories, or blessings for A & M...',
+      submitBtn: 'Send Message with Love 💌',
+      submittingBtn: 'Saving message...',
+      successTitle: 'Message received with love!',
+      successMessage: 'Thank you for celebrating with us and sharing your lovely words. The newlyweds will treasure this forever.',
+      sendAnotherBtn: 'Leave another note',
+      recentMessagesTitle: 'Guest Wishes & Notes',
+      noMessagesYet: 'No messages yet. Be the first to write in the guestbook!',
+      backToKitBtn: 'Back to Recovery Kit 🌿',
+      goToGuestbookBtn: 'Go to Guestbook ✍️',
+      guestNotesNotice: 'The newlyweds will read every message and cherish them forever.',
+      cardCtaText: 'Would you like to leave a special message or wish for the newlyweds?',
+      cardCtaBtn: 'Write in the Guestbook 💌',
+    },
     actions: {
       viewOriginal: 'View Original Card',
       viewInteractive: 'Interactive Guide',

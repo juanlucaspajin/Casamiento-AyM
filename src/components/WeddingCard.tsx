@@ -6,9 +6,10 @@ import { BotanicalWreath, CornerBotanicals, GoldLeafFlourish, GoldHeart, KitItem
 
 interface WeddingCardProps {
   content: WeddingContent;
+  onOpenGuestbook?: () => void;
 }
 
-export function WeddingCard({ content }: WeddingCardProps) {
+export function WeddingCard({ content, onOpenGuestbook }: WeddingCardProps) {
   return (
     <div className="relative w-full max-w-2xl mx-auto my-3 sm:my-8 px-2 sm:px-4">
       {/* Paper Card Background with Luxury Shadows & Border */}
@@ -111,6 +112,21 @@ export function WeddingCard({ content }: WeddingCardProps) {
                 {content.signature}
               </p>
             </div>
+
+            {/* Optional Invitation to Guestbook */}
+            {onOpenGuestbook && (
+              <div className="pt-6 sm:pt-7">
+                <button
+                  type="button"
+                  onClick={onOpenGuestbook}
+                  className="group inline-flex items-center space-x-2 px-6 py-2.5 rounded-full bg-[#f4ede0] hover:bg-[#ede3d0] border border-[#c5a059]/60 text-[#20382e] hover:text-[#142920] shadow-xs hover:shadow-md transition-all duration-300 text-xs sm:text-sm font-serif tracking-wider uppercase font-semibold cursor-pointer"
+                >
+                  <span>💌</span>
+                  <span>{content.guestbook.cardCtaBtn}</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </button>
+              </div>
+            )}
           </div>
 
         </div>
