@@ -4,12 +4,14 @@ import React from 'react';
 import { Language } from '../data/weddingData';
 import { SpainFlag, USAFlag } from './BotanicalAssets';
 
+export type TabType = 'card' | 'guestbook' | 'album';
+
 interface WeddingHeaderProps {
   language: Language;
   onLanguageChange: (lang: Language) => void;
   onResetLanguage: () => void;
-  activeTab: 'card' | 'guestbook';
-  onTabChange: (tab: 'card' | 'guestbook') => void;
+  activeTab: TabType;
+  onTabChange: (tab: TabType) => void;
 }
 
 export function WeddingHeader({
@@ -23,42 +25,42 @@ export function WeddingHeader({
 
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-[#faf7f2]/92 border-b border-[#c5a059]/25 shadow-xs transition-all">
-      <div className="max-w-3xl mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
+      <div className="max-w-3xl mx-auto px-2 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-1.5 sm:gap-2">
         
         {/* Monogram Brand */}
         <button 
           onClick={onResetLanguage}
-          className="flex items-center space-x-2 group cursor-pointer text-left bg-transparent border-none p-0 flex-shrink-0"
+          className="flex items-center space-x-1.5 sm:space-x-2 group cursor-pointer text-left bg-transparent border-none p-0 flex-shrink-0"
           title={isEs ? 'Volver a selección de idioma' : 'Back to language selection'}
         >
-          <div className="w-8 h-8 rounded-full overflow-hidden border border-[#c5a059]/40 bg-[#FAF7F2] p-0.5 shadow-xs group-hover:scale-105 transition-transform flex items-center justify-center">
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden border border-[#c5a059]/40 bg-[#FAF7F2] p-0.5 shadow-xs group-hover:scale-105 transition-transform flex items-center justify-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/wedding-logo-transparent.png" alt="A & M" className="w-full h-full object-contain" />
           </div>
           <div className="font-serif tracking-widest text-[#20382e] group-hover:text-[#8c6d32] transition-colors flex items-center">
-            <span className="text-lg sm:text-2xl font-bold font-serif">A</span>
-            <span className="text-base sm:text-xl italic text-[#c5a059] px-0.5">&</span>
-            <span className="text-lg sm:text-2xl font-bold font-serif">M</span>
+            <span className="text-base sm:text-2xl font-bold font-serif">A</span>
+            <span className="text-sm sm:text-xl italic text-[#c5a059] px-0.5">&</span>
+            <span className="text-base sm:text-2xl font-bold font-serif">M</span>
           </div>
         </button>
 
-        {/* View Switcher Tabs: Kit vs Guestbook */}
-        <nav className="flex items-center bg-[#f0e7d8]/90 p-1 rounded-full border border-[#c5a059]/40 shadow-xs">
+        {/* View Switcher Tabs: Kit vs Guestbook vs Shared Album */}
+        <nav className="flex items-center bg-[#f0e7d8]/90 p-0.5 sm:p-1 rounded-full border border-[#c5a059]/40 shadow-xs">
           <button
             onClick={() => onTabChange('card')}
-            className={`flex items-center space-x-1 sm:space-x-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-serif transition-all cursor-pointer ${
+            className={`flex items-center space-x-1 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-serif transition-all cursor-pointer ${
               activeTab === 'card'
                 ? 'bg-[#ffffff] text-[#20382e] font-bold shadow-xs'
                 : 'text-[#627b6d] hover:text-[#20382e]'
             }`}
           >
             <span>🌿</span>
-            <span>{isEs ? 'Kit' : 'Kit'}</span>
+            <span className="hidden xs:inline sm:inline">{isEs ? 'Kit' : 'Kit'}</span>
           </button>
 
           <button
             onClick={() => onTabChange('guestbook')}
-            className={`flex items-center space-x-1 sm:space-x-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-serif transition-all cursor-pointer ${
+            className={`flex items-center space-x-1 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-serif transition-all cursor-pointer ${
               activeTab === 'guestbook'
                 ? 'bg-[#ffffff] text-[#20382e] font-bold shadow-xs'
                 : 'text-[#627b6d] hover:text-[#20382e]'
@@ -67,14 +69,26 @@ export function WeddingHeader({
             <span>💌</span>
             <span>{isEs ? 'Firmas' : 'Guestbook'}</span>
           </button>
+
+          <button
+            onClick={() => onTabChange('album')}
+            className={`flex items-center space-x-1 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-serif transition-all cursor-pointer ${
+              activeTab === 'album'
+                ? 'bg-[#ffffff] text-[#20382e] font-bold shadow-xs'
+                : 'text-[#627b6d] hover:text-[#20382e]'
+            }`}
+          >
+            <span>📸</span>
+            <span>{isEs ? 'Fotos' : 'Photos'}</span>
+          </button>
         </nav>
 
         {/* Language Switcher Pill */}
-        <div className="flex items-center bg-[#f0e7d8]/90 p-1 rounded-full border border-[#c5a059]/40 shadow-xs flex-shrink-0">
+        <div className="flex items-center bg-[#f0e7d8]/90 p-0.5 sm:p-1 rounded-full border border-[#c5a059]/40 shadow-xs flex-shrink-0">
           {/* Spanish Toggle */}
           <button
             onClick={() => onLanguageChange('es')}
-            className={`flex items-center space-x-1 px-2 sm:px-2.5 py-1 rounded-full text-xs font-serif transition-all cursor-pointer ${
+            className={`flex items-center space-x-1 px-1.5 sm:px-2.5 py-1 rounded-full text-xs font-serif transition-all cursor-pointer ${
               language === 'es'
                 ? 'bg-[#ffffff] text-[#20382e] font-bold shadow-xs'
                 : 'text-[#627b6d] hover:text-[#20382e]'
@@ -88,7 +102,7 @@ export function WeddingHeader({
           {/* English Toggle */}
           <button
             onClick={() => onLanguageChange('en')}
-            className={`flex items-center space-x-1 px-2 sm:px-2.5 py-1 rounded-full text-xs font-serif transition-all cursor-pointer ${
+            className={`flex items-center space-x-1 px-1.5 sm:px-2.5 py-1 rounded-full text-xs font-serif transition-all cursor-pointer ${
               language === 'en'
                 ? 'bg-[#ffffff] text-[#20382e] font-bold shadow-xs'
                 : 'text-[#627b6d] hover:text-[#20382e]'

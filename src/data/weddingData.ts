@@ -35,6 +35,26 @@ export interface GuestbookContent {
   cardCtaBtn: string;
 }
 
+export interface PhotoAlbumStep {
+  icon: 'camera' | 'link' | 'upload';
+  title: string;
+  desc: string;
+}
+
+export interface PhotoAlbumContent {
+  tabLabel: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  openAlbumBtn: string;
+  comingSoonNotice: string;
+  instructionsTitle: string;
+  steps: PhotoAlbumStep[];
+  googlePhotosNotice: string;
+  backToKitBtn: string;
+  cardCtaBtn: string;
+}
+
 export interface WeddingContent {
   monogram: {
     initials: string;
@@ -50,6 +70,7 @@ export interface WeddingContent {
   signaturePrefix: string;
   signature: string;
   guestbook: GuestbookContent;
+  album: PhotoAlbumContent;
   actions: {
     viewOriginal: string;
     viewInteractive: string;
@@ -176,6 +197,35 @@ export const weddingContent: Record<Language, WeddingContent> = {
       guestNotesNotice: 'Los novios leerán cada uno de sus mensajes y los guardarán con mucho cariño.',
       cardCtaText: '¿Quieres dejarle un mensaje especial o tus mejores deseos a los novios?',
       cardCtaBtn: 'Escribir en el Libro de Firmas 💌',
+    },
+    album: {
+      tabLabel: 'Álbum',
+      badge: 'Recuerdos & Momentos',
+      title: 'ÁLBUM COMPARTIDO DE FOTOS',
+      subtitle: '¡Queremos revivir la fiesta a través de tus ojos! Sube aquí todas las fotos y videos que captures hoy para compartirlos con los novios y todos los invitados.',
+      openAlbumBtn: 'Abrir Álbum en Google Fotos 📸',
+      comingSoonNotice: '¡El enlace al álbum de Google Fotos estará disponible muy pronto durante la fiesta!',
+      instructionsTitle: '¿Cómo compartir tus fotos y videos?',
+      steps: [
+        {
+          icon: 'camera',
+          title: '1. Saca fotos y videos',
+          desc: 'Captura los momentos más divertidos y emotivos de la celebración.',
+        },
+        {
+          icon: 'link',
+          title: '2. Entra al álbum',
+          desc: 'Toca el botón para acceder directo al álbum compartido de Google Fotos.',
+        },
+        {
+          icon: 'upload',
+          title: '3. ¡Sube y comparte!',
+          desc: 'Agrega tus archivos para que los novios y todos puedan verlos.',
+        },
+      ],
+      googlePhotosNotice: 'Puedes acceder fácilmente desde tu celular con tu cuenta de Google.',
+      backToKitBtn: 'Volver al Kit de Resaca 🌿',
+      cardCtaBtn: 'Ver Álbum Compartido de Fotos 📸',
     },
     actions: {
       viewOriginal: 'Ver Tarjeta Original',
@@ -306,6 +356,35 @@ export const weddingContent: Record<Language, WeddingContent> = {
       guestNotesNotice: 'The newlyweds will read every message and cherish them forever.',
       cardCtaText: 'Would you like to leave a special message or wish for the newlyweds?',
       cardCtaBtn: 'Write in the Guestbook 💌',
+    },
+    album: {
+      tabLabel: 'Album',
+      badge: 'Memories & Moments',
+      title: 'SHARED PHOTO ALBUM',
+      subtitle: 'We want to relive the celebration through your eyes! Upload all the photos and videos you capture today to share them with the newlyweds and all guests.',
+      openAlbumBtn: 'Open Album in Google Photos 📸',
+      comingSoonNotice: 'The Google Photos album link will be available very soon during the party!',
+      instructionsTitle: 'How to share your photos & videos?',
+      steps: [
+        {
+          icon: 'camera',
+          title: '1. Take photos & videos',
+          desc: 'Capture the happiest, funniest, and most unforgettable moments.',
+        },
+        {
+          icon: 'link',
+          title: '2. Open the album',
+          desc: 'Tap the button to enter our shared Google Photos album directly.',
+        },
+        {
+          icon: 'upload',
+          title: '3. Upload & enjoy!',
+          desc: 'Add your memories so the couple and everyone can relive them.',
+        },
+      ],
+      googlePhotosNotice: 'You can easily access directly from your phone with your Google account.',
+      backToKitBtn: 'Back to Recovery Kit 🌿',
+      cardCtaBtn: 'View Shared Photo Album 📸',
     },
     actions: {
       viewOriginal: 'View Original Card',

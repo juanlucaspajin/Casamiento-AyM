@@ -3,14 +3,15 @@
 import React, { useState } from 'react';
 import { Language, weddingContent } from '../data/weddingData';
 import { LanguageSelector } from '../components/LanguageSelector';
-import { WeddingHeader } from '../components/WeddingHeader';
+import { WeddingHeader, TabType } from '../components/WeddingHeader';
 import { WeddingCard } from '../components/WeddingCard';
 import { GuestbookForm } from '../components/GuestbookForm';
+import { SharedAlbumView } from '../components/SharedAlbumView';
 
 export default function WeddingPage() {
   // Always start with null so the user first sees the language selection screen
   const [language, setLanguage] = useState<Language | null>(null);
-  const [activeTab, setActiveTab] = useState<'card' | 'guestbook'>('card');
+  const [activeTab, setActiveTab] = useState<TabType>('card');
 
   const handleSelectLanguage = (lang: Language) => {
     setLanguage(lang);
@@ -30,7 +31,7 @@ export default function WeddingPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#20382E] relative selection:bg-[#c5a059]/25">
-      {/* Sticky Header with Controls */}
+      {/* Sticky Header with Controls & Navigation */}
       <WeddingHeader
         language={language}
         onLanguageChange={handleSelectLanguage}
@@ -39,15 +40,25 @@ export default function WeddingPage() {
         onTabChange={setActiveTab}
       />
 
-      {/* Main Content Area: Switches between Wedding Card & Guestbook Form */}
+      {/* Main Content Area: Switches between Wedding Card, Guestbook Form & Shared Photo Album */}
       <main className="flex-1 flex items-center justify-center w-full px-2 sm:px-4 py-4 sm:py-8 animate-in fade-in duration-500">
-        {activeTab === 'card' ? (
+        {activeTab === 'card' && (
           <WeddingCard
             content={currentContent}
             onOpenGuestbook={() => setActiveTab('guestbook')}
+            onOpenAlbum={() => setActiveTab('album')}
           />
-        ) : (
+        )}
+
+        {activeTab === 'guestbook' && (
           <GuestbookForm
+            content={currentContent}
+            onBackToKit={() => setActiveTab('card')}
+          />
+        )}
+
+        {activeTab === 'album' && (
+          <SharedAlbumView
             content={currentContent}
             onBackToKit={() => setActiveTab('card')}
           />
