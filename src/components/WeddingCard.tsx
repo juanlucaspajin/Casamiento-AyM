@@ -10,9 +10,9 @@ interface WeddingCardProps {
 
 export function WeddingCard({ content }: WeddingCardProps) {
   return (
-    <div className="relative w-full max-w-xl mx-auto my-2 sm:my-6 px-1 sm:px-4">
+    <div className="relative w-full max-w-2xl mx-auto my-3 sm:my-8 px-2 sm:px-4">
       {/* Paper Card Background with Luxury Shadows & Border */}
-      <div className="relative bg-[#FAF7F2] text-[#20382E] rounded-[2.5rem] shadow-2xl overflow-hidden border border-[#d8c7a6]/70 transition-all duration-300">
+      <div className="relative bg-[#FAF7F2] text-[#20382E] rounded-[2.5rem] sm:rounded-[3rem] shadow-2xl overflow-hidden border border-[#d8c7a6]/70 transition-all duration-300">
         
         {/* Subtle Paper Texture Overlay */}
         <div 
@@ -24,27 +24,27 @@ export function WeddingCard({ content }: WeddingCardProps) {
         />
 
         {/* Double Gold Arched Outer & Inner Frame */}
-        <div className="absolute inset-3 sm:inset-5 rounded-[2rem] border border-[#c5a059]/45 pointer-events-none" />
-        <div className="absolute inset-4 sm:inset-6 rounded-[1.75rem] border border-[#c5a059]/25 pointer-events-none" />
+        <div className="absolute inset-3 sm:inset-5 rounded-[2rem] sm:rounded-[2.5rem] border border-[#c5a059]/45 pointer-events-none" />
+        <div className="absolute inset-4 sm:inset-6 rounded-[1.75rem] sm:rounded-[2.25rem] border border-[#c5a059]/25 pointer-events-none" />
 
         {/* Corner Botanicals on bottom corners */}
         <CornerBotanicals />
 
         {/* Content Container */}
-        <div className="relative z-10 px-6 sm:px-12 md:px-14 pt-8 sm:pt-12 pb-12 sm:pb-16 flex flex-col items-center text-center">
+        <div className="relative z-10 px-6 sm:px-12 md:px-16 pt-9 sm:pt-14 pb-14 sm:pb-20 flex flex-col items-center text-center">
 
           {/* Monogram Section with Wreath */}
           <div className="relative w-full mb-3">
             <BotanicalWreath />
             <div className="absolute inset-0 flex items-center justify-center -translate-y-5">
-              <div className="flex items-center space-x-1 font-serif select-none">
-                <span className="text-4xl sm:text-5xl md:text-6xl font-normal text-[#20382e] tracking-tight">
+              <div className="flex items-center space-x-1.5 font-serif select-none">
+                <span className="text-5xl sm:text-6xl md:text-7xl font-normal text-[#20382e] tracking-tight">
                   A
                 </span>
-                <span className="text-3xl sm:text-4xl md:text-5xl italic text-[#c5a059] px-1 font-serif font-light">
+                <span className="text-4xl sm:text-5xl md:text-6xl italic text-[#c5a059] px-1 font-serif font-light">
                   &
                 </span>
-                <span className="text-4xl sm:text-5xl md:text-6xl font-normal text-[#20382e] tracking-tight">
+                <span className="text-5xl sm:text-6xl md:text-7xl font-normal text-[#20382e] tracking-tight">
                   M
                 </span>
               </div>
@@ -52,49 +52,49 @@ export function WeddingCard({ content }: WeddingCardProps) {
           </div>
 
           {/* Title in spaced small-caps */}
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-[#20382e] tracking-[0.16em] uppercase font-medium max-w-lg mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#20382e] tracking-[0.16em] uppercase font-medium max-w-xl mb-3 leading-snug">
             {content.cardTitle}
           </h2>
 
           {/* Delicate leaf flourish */}
-          <GoldLeafFlourish className="w-24 sm:w-32 h-4 my-2 opacity-85" />
+          <GoldLeafFlourish className="w-28 sm:w-36 h-5 my-2.5 opacity-85" />
 
           {/* Intro Paragraphs */}
-          <div className="max-w-lg space-y-2 mb-4 font-serif italic text-sm sm:text-base md:text-lg text-[#324b3d] leading-relaxed">
+          <div className="max-w-xl space-y-2.5 mb-5 font-serif italic text-base sm:text-lg md:text-xl text-[#2d4738] leading-relaxed">
             <p>{content.introLines[0]}</p>
             <p>{content.introLines[1]}</p>
           </div>
 
           {/* Second leaf flourish */}
-          <GoldLeafFlourish className="w-24 sm:w-32 h-4 my-2 opacity-85" />
+          <GoldLeafFlourish className="w-28 sm:w-36 h-5 my-2.5 opacity-85" />
 
           {/* 4 Kit Items */}
-          <div className="w-full max-w-lg space-y-5 sm:space-y-6 my-4 text-left">
+          <div className="w-full max-w-xl space-y-6 sm:space-y-7 my-5 text-left">
             {content.items.map((item) => (
               <div
                 key={item.id}
-                className="flex items-start space-x-3.5 sm:space-x-4 p-1.5 sm:p-2 rounded-xl"
+                className="flex items-start space-x-4 sm:space-x-5 p-2 sm:p-2.5 rounded-xl"
               >
                 {/* Circular Gold Icon */}
                 <KitItemIcon
                   type={item.iconType}
-                  className="w-13 h-13 sm:w-14 sm:h-14 mt-0.5 flex-shrink-0"
+                  className="w-14 h-14 sm:w-16 sm:h-16 mt-0.5 flex-shrink-0"
                 />
 
                 {/* Text Description */}
-                <div className="flex-1 font-serif text-[#263e32] leading-snug">
-                  <p className="text-sm sm:text-base text-[#1b3328]">
-                    <span className="font-semibold tracking-wide uppercase text-[#1b3328]">
+                <div className="flex-1 font-serif text-[#20382e] leading-relaxed">
+                  <p className="text-base sm:text-lg md:text-xl text-[#142920]">
+                    <span className="font-bold tracking-wide uppercase text-[#142920]">
                       {item.name}:
                     </span>{' '}
-                    <span className="text-[#324b3d]">
+                    <span className="text-[#2d4738]">
                       {item.shortDesc}
                     </span>
                   </p>
 
                   {/* How to use text */}
                   {item.howToUse && (
-                    <p className="mt-2 text-xs sm:text-[13px] text-[#4d6657] italic leading-relaxed pl-1">
+                    <p className="mt-2.5 text-sm sm:text-base md:text-[17px] text-[#425e4e] italic leading-relaxed pl-1 sm:pl-2 border-l-2 border-[#c5a059]/40">
                       {item.howToUse}
                     </p>
                   )}
@@ -104,23 +104,23 @@ export function WeddingCard({ content }: WeddingCardProps) {
           </div>
 
           {/* Third leaf flourish */}
-          <GoldLeafFlourish className="w-24 sm:w-32 h-4 my-3 opacity-85" />
+          <GoldLeafFlourish className="w-28 sm:w-36 h-5 my-3.5 opacity-85" />
 
           {/* Footer Closing Note */}
-          <div className="space-y-3 font-serif mt-2">
-            <p className="italic text-sm sm:text-base md:text-lg text-[#2a4335]">
+          <div className="space-y-3.5 font-serif mt-2">
+            <p className="italic text-base sm:text-lg md:text-xl text-[#223d2f]">
               {content.closingMessage}
             </p>
 
-            <div className="flex justify-center py-1">
-              <GoldHeart className="w-4 h-4 text-[#c5a059] fill-[#c5a059]" />
+            <div className="flex justify-center py-1.5">
+              <GoldHeart className="w-5 h-5 text-[#c5a059] fill-[#c5a059]" />
             </div>
 
-            <div className="space-y-1">
-              <p className="text-xs uppercase tracking-[0.25em] text-[#556f61] font-semibold">
+            <div className="space-y-1.5">
+              <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-[#4f6e5c] font-semibold">
                 {content.signaturePrefix}
               </p>
-              <p className="text-xl sm:text-2xl font-normal text-[#20382e] tracking-[0.2em] font-serif">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-normal text-[#20382e] tracking-[0.2em] font-serif">
                 {content.signature}
               </p>
             </div>
