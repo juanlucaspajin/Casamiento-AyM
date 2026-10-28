@@ -87,6 +87,20 @@ export function WeddingCard({ content, onOpenGuestbook, onOpenAlbum }: WeddingCa
                       {item.howToUse}
                     </p>
                   )}
+
+                  {/* Sub-items with bold title (e.g. Uvasal, Omeprazol) */}
+                  {item.subItems && item.subItems.length > 0 && (
+                    <div className="mt-2.5 space-y-2 text-sm sm:text-base md:text-[17px] text-[#425e4e] leading-relaxed pl-1 sm:pl-2 border-l-2 border-[#c5a059]/40">
+                      {item.subItems.map((sub, idx) => (
+                        <p key={idx}>
+                          <span className="font-bold text-[#142920] not-italic">
+                            {sub.name}:
+                          </span>{' '}
+                          <span className="italic">{sub.desc}</span>
+                        </p>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
