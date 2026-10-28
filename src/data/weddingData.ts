@@ -11,6 +11,50 @@ export interface RecoveryItem {
   tips?: string[];
 }
 
+export interface GuestbookContent {
+  tabLabel: string;
+  kitTabLabel: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  messageLabel: string;
+  messagePlaceholder: string;
+  submitBtn: string;
+  submittingBtn: string;
+  successTitle: string;
+  successMessage: string;
+  sendAnotherBtn: string;
+  recentMessagesTitle: string;
+  noMessagesYet: string;
+  backToKitBtn: string;
+  goToGuestbookBtn: string;
+  guestNotesNotice: string;
+  cardCtaText: string;
+  cardCtaBtn: string;
+}
+
+export interface PhotoAlbumStep {
+  icon: 'camera' | 'link' | 'upload';
+  title: string;
+  desc: string;
+}
+
+export interface PhotoAlbumContent {
+  tabLabel: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  openAlbumBtn: string;
+  comingSoonNotice: string;
+  instructionsTitle: string;
+  steps: PhotoAlbumStep[];
+  googlePhotosNotice: string;
+  backToKitBtn: string;
+  cardCtaBtn: string;
+}
+
 export interface WeddingContent {
   monogram: {
     initials: string;
@@ -25,6 +69,8 @@ export interface WeddingContent {
   closingMessage: string;
   signaturePrefix: string;
   signature: string;
+  guestbook: GuestbookContent;
+  album: PhotoAlbumContent;
   actions: {
     viewOriginal: string;
     viewInteractive: string;
@@ -129,6 +175,58 @@ export const weddingContent: Record<Language, WeddingContent> = {
     closingMessage: '¡Gracias por celebrar este día tan especial con nosotros!',
     signaturePrefix: 'CON CARIÑO,',
     signature: 'A & M',
+    guestbook: {
+      tabLabel: 'Libro de Firmas',
+      kitTabLabel: 'Kit de Resaca',
+      badge: 'Deseos & Recuerdos',
+      title: 'LIBRO DE FIRMAS & DESEOS',
+      subtitle: 'Dejá tus palabras, bendiciones, anécdotas o consejos para la nueva etapa de A & M.',
+      nameLabel: 'Tu Nombre o Familia',
+      namePlaceholder: 'Ej: Sofía & Tomás / Familia Martínez',
+      messageLabel: 'Tu Mensaje para los Novios',
+      messagePlaceholder: 'Escribe aquí tus mejores deseos, anécdotas o felicitaciones para A & M...',
+      submitBtn: 'Enviar Mensaje con Cariño 💌',
+      submittingBtn: 'Guardando mensaje...',
+      successTitle: '¡Muchas gracias por tus palabras!',
+      successMessage: 'Tu mensaje fue guardado con éxito. Los novios lo leerán con mucho amor.',
+      sendAnotherBtn: 'Dejar otro mensaje',
+      recentMessagesTitle: 'Mensajes de los Invitados',
+      noMessagesYet: 'Aún no hay mensajes. ¡Sé el primero en dejarle un mensaje lleno de cariño a la pareja!',
+      backToKitBtn: 'Volver al Kit de Resaca 🌿',
+      goToGuestbookBtn: 'Ir al Libro de Firmas ✍️',
+      guestNotesNotice: 'Los novios leerán cada uno de sus mensajes y los guardarán con mucho cariño.',
+      cardCtaText: '¿Quieres dejarle un mensaje especial o tus mejores deseos a los novios?',
+      cardCtaBtn: 'Escribir en el Libro de Firmas 💌',
+    },
+    album: {
+      tabLabel: 'Álbum',
+      badge: 'Recuerdos & Momentos',
+      title: 'ÁLBUM COMPARTIDO DE FOTOS',
+      subtitle: '¡Queremos revivir la fiesta a través de tus ojos! Sube aquí todas las fotos y videos que captures hoy para compartirlos con los novios y todos los invitados.',
+      openAlbumBtn: 'Abrir Álbum en Google Fotos 📸',
+      comingSoonNotice: '¡El enlace al álbum de Google Fotos estará disponible muy pronto durante la fiesta!',
+      instructionsTitle: '¿Cómo compartir tus fotos y videos?',
+      steps: [
+        {
+          icon: 'camera',
+          title: '1. Saca fotos y videos',
+          desc: 'Captura los momentos más divertidos y emotivos de la celebración.',
+        },
+        {
+          icon: 'link',
+          title: '2. Entra al álbum',
+          desc: 'Toca el botón para acceder directo al álbum compartido de Google Fotos.',
+        },
+        {
+          icon: 'upload',
+          title: '3. ¡Sube y comparte!',
+          desc: 'Agrega tus archivos para que los novios y todos puedan verlos.',
+        },
+      ],
+      googlePhotosNotice: 'Puedes acceder fácilmente desde tu celular con tu cuenta de Google.',
+      backToKitBtn: 'Volver al Kit de Resaca 🌿',
+      cardCtaBtn: 'Ver Álbum Compartido de Fotos 📸',
+    },
     actions: {
       viewOriginal: 'Ver Tarjeta Original',
       viewInteractive: 'Modo Interactivo',
@@ -236,6 +334,58 @@ export const weddingContent: Record<Language, WeddingContent> = {
     closingMessage: 'Thank you for celebrating our special day with us.',
     signaturePrefix: 'WITH LOVE,',
     signature: 'A & M',
+    guestbook: {
+      tabLabel: 'Guestbook',
+      kitTabLabel: 'Recovery Kit',
+      badge: 'Wishes & Memories',
+      title: 'WEDDING GUESTBOOK',
+      subtitle: 'Leave your warm wishes, blessings, memories, or marriage advice for A & M.',
+      nameLabel: 'Your Name or Family',
+      namePlaceholder: 'e.g. Sophia & Thomas / The Smith Family',
+      messageLabel: 'Your Message for the Couple',
+      messagePlaceholder: 'Share your heartfelt congratulations, memories, or blessings for A & M...',
+      submitBtn: 'Send Message with Love 💌',
+      submittingBtn: 'Saving message...',
+      successTitle: 'Message received with love!',
+      successMessage: 'Thank you for celebrating with us and sharing your lovely words. The newlyweds will treasure this forever.',
+      sendAnotherBtn: 'Leave another note',
+      recentMessagesTitle: 'Guest Wishes & Notes',
+      noMessagesYet: 'No messages yet. Be the first to write in the guestbook!',
+      backToKitBtn: 'Back to Recovery Kit 🌿',
+      goToGuestbookBtn: 'Go to Guestbook ✍️',
+      guestNotesNotice: 'The newlyweds will read every message and cherish them forever.',
+      cardCtaText: 'Would you like to leave a special message or wish for the newlyweds?',
+      cardCtaBtn: 'Write in the Guestbook 💌',
+    },
+    album: {
+      tabLabel: 'Album',
+      badge: 'Memories & Moments',
+      title: 'SHARED PHOTO ALBUM',
+      subtitle: 'We want to relive the celebration through your eyes! Upload all the photos and videos you capture today to share them with the newlyweds and all guests.',
+      openAlbumBtn: 'Open Album in Google Photos 📸',
+      comingSoonNotice: 'The Google Photos album link will be available very soon during the party!',
+      instructionsTitle: 'How to share your photos & videos?',
+      steps: [
+        {
+          icon: 'camera',
+          title: '1. Take photos & videos',
+          desc: 'Capture the happiest, funniest, and most unforgettable moments.',
+        },
+        {
+          icon: 'link',
+          title: '2. Open the album',
+          desc: 'Tap the button to enter our shared Google Photos album directly.',
+        },
+        {
+          icon: 'upload',
+          title: '3. Upload & enjoy!',
+          desc: 'Add your memories so the couple and everyone can relive them.',
+        },
+      ],
+      googlePhotosNotice: 'You can easily access directly from your phone with your Google account.',
+      backToKitBtn: 'Back to Recovery Kit 🌿',
+      cardCtaBtn: 'View Shared Photo Album 📸',
+    },
     actions: {
       viewOriginal: 'View Original Card',
       viewInteractive: 'Interactive Guide',
