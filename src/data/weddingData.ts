@@ -1,10 +1,16 @@
 export type Language = 'es' | 'en';
 
+export interface SubItem {
+  name: string;
+  desc: string;
+}
+
 export interface RecoveryItem {
   id: string;
   name: string;
   shortDesc: string;
   howToUse?: string;
+  subItems?: SubItem[];
   details?: string;
   iconType: 'pill' | 'stomach' | 'mint' | 'bandage';
   badge?: string;
@@ -135,7 +141,16 @@ export const weddingContent: Record<Language, WeddingContent> = {
         id: 'antiacidos',
         name: 'ANTIÁCIDOS',
         shortDesc: 'para aliviar la acidez o el malestar estomacal.',
-        howToUse: 'Masticar o disolver en agua según indicación. Tomar preferentemente al sentir ardor estomacal o pesadez.',
+        subItems: [
+          {
+            name: 'Uvasal',
+            desc: 'Disolver en agua según indicación. Tomar preferentemente al sentir ardor estomacal o pesadez.',
+          },
+          {
+            name: 'Omeprazol',
+            desc: 'Pastilla protector estomacal. Tomar el comprimido antes de las comidas.',
+          },
+        ],
         details: 'Calma rápidamente la acidez gástrica provocada por las comidas festivas y brindis.',
         iconType: 'stomach',
         badge: 'Digestión',
@@ -294,7 +309,16 @@ export const weddingContent: Record<Language, WeddingContent> = {
         id: 'antiacidos',
         name: 'ANTACIDS',
         shortDesc: 'To help soothe heartburn or an upset stomach.',
-        howToUse: 'Chew or dissolve in water as directed. Take when experiencing heartburn or acid indigestion.',
+        subItems: [
+          {
+            name: 'Uvasal',
+            desc: 'Dissolve in water as directed. Take preferably when feeling heartburn or stomach heaviness.',
+          },
+          {
+            name: 'Omeprazole',
+            desc: 'Stomach protector tablet. Take the tablet before meals.',
+          },
+        ],
         details: 'Quickly relieves acid reflux and stomach sensitivity after late-night gourmet food and champagne.',
         iconType: 'stomach',
         badge: 'Digestion',
